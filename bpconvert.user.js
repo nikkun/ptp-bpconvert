@@ -41,7 +41,7 @@ var request = function(url, callback) {
 
 // Find current bonus point value using text of #nav_bonus in menu bar
 var getCurrentPoints = function() {
-  var str = document.getElementById('nav_bonus').innerText;
+  var str = document.getElementById('nav_bonus').textContent;
   str = str.substring(7, str.length - 1);
   str = str.replace(',', '');
   return parseInt(str);
@@ -86,7 +86,7 @@ if (getCurrentPoints() >= 50000) {
   link.className = 'user-info-bar__link';
   link.href = 'javascript:void(0)';
   link.title = 'Convert bonus points';
-  link.innerText = 'Convert';
+  link.textContent = 'Convert';
 
   // Bind link to function
   link.onclick = getConverter();
