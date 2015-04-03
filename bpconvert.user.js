@@ -2,7 +2,7 @@
 // @name PTP Bonus to Upload Converter
 // @namespace passthepopcorn.me
 // @author nikkun
-// @version 1.0.2
+// @version 1.0.3
 // @description If you have at least 50,000 bonus points, creates a button that will convert all available bonus points (in 50,000 point increments) to upload credit
 // @icon https://tls.passthepopcorn.me/favicon.ico
 // @include *://*.passthepopcorn.me/*
