@@ -48,30 +48,24 @@ var getCurrentPoints = function() {
 };
 
 // Return function that makes all our conversion requests
-var getConverter = function() {
+var convert = function() {
   var points = getCurrentPoints();
 
-  // This will find the largest conversion we can afford, and request it
-  // If we cannot afford any upload conversions, the page will refresh
-  // Since it passes itself as a callback, it will keep getting called until we're out
-  var makeRequest = function() {
-    var sufficientFunds = false;
-    for (var i = 0; i < urls.length; i++) {
-      if (points >= urls[i].points) {
-        sufficientFunds = true;
-        points -= urls[i].points;
-        // Make the actual request
-        request(urls[i].url, makeRequest);
-        break;
-      };
-    };
-    if (!sufficientFunds) {
-      // Refresh page
-      window.location = window.location;
+  var remaining = 0;
+  for (var i = 0; i < urls.length;) {
+    if (points >= urls[i].points) {
+      sufficientFunds = true;
+      var xhr = request(urls[i].url, function() {
+        if (--remaining == 0) {
+          window.location = window.location;
+        };
+      });
+      remaining++;
+      points -= urls[i].points;
+    } else {
+      i++;
     };
   };
-
-  return makeRequest;
 };
 
 // Only create button if you have sufficient bonus points
@@ -89,7 +83,7 @@ if (getCurrentPoints() >= 50000) {
   link.textContent = 'Convert';
 
   // Bind link to function
-  link.onclick = getConverter();
+  link.onclick = convert;
 
   li.appendChild(link);
 
