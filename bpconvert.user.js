@@ -43,7 +43,7 @@ var request = function(url, callback) {
 var getCurrentPoints = function() {
   var str = document.getElementById('nav_bonus').textContent;
   str = str.substring(7, str.length - 1);
-  str = str.replace(',', '');
+  str = str.replace(/,/g, '');
   return parseInt(str);
 };
 
