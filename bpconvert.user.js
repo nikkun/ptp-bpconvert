@@ -41,10 +41,13 @@ var request = function(url, callback) {
 
 // Find current bonus point value using text of #nav_bonus in menu bar
 var getCurrentPoints = function() {
-  var str = document.getElementById('nav_bonus').textContent;
-  str = str.substring(7, str.length - 1);
-  str = str.replace(/,/g, '');
-  return parseInt(str);
+  var pointElem = document.getElementById('nav_bonus')
+  if (!pointElem)
+    return -1;
+  var pointStr = pointElem.textContent;
+  pointStr = str.substring(7, str.length - 1);
+  pointStr = str.replace(/,/g, '');
+  return parseInt(pointStr);
 };
 
 // Return function that makes all our conversion requests
