@@ -45,8 +45,8 @@ var getCurrentPoints = function() {
   if (!pointElem)
     return -1;
   var pointStr = pointElem.textContent;
-  pointStr = str.substring(7, str.length - 1);
-  pointStr = str.replace(/,/g, '');
+  pointStr = pointStr.substring(7, pointStr.length - 1);
+  pointStr = pointStr.replace(/,/g, '');
   return parseInt(pointStr);
 };
 
