@@ -41,7 +41,7 @@ var request = function(url, callback) {
 
 // Find current bonus point value using text of #nav_bonus in menu bar
 var getCurrentPoints = function() {
-  var pointElem = document.getElementById('nav_bonus')
+  var pointElem = document.getElementById('nav_bonus');
   if (!pointElem)
     return -1;
   var pointStr = pointElem.textContent;
@@ -59,16 +59,16 @@ var convert = function() {
     if (points >= urls[i].points) {
       sufficientFunds = true;
       var xhr = request(urls[i].url, function() {
-        if (--remaining == 0) {
+        if (--remaining === 0) {
           window.location = window.location;
-        };
+        }
       });
       remaining++;
       points -= urls[i].points;
     } else {
       i++;
-    };
-  };
+    }
+  }
 };
 
 // Only create button if you have sufficient bonus points
@@ -98,6 +98,6 @@ if (getCurrentPoints() >= 50000) {
   if (donateLink) {
     donateLink.parentNode.insertBefore(li, donateLink);
     donateLink.parentNode.insertBefore(space, donateLink);
-  };
+  }
 
-};
+}
