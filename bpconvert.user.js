@@ -4,8 +4,8 @@
 // @author nikkun
 // @version 1.0.4
 // @description If you have at least 50,000 bonus points, creates a button that will convert all available bonus points (in 50,000 point increments) to upload credit
-// @icon https://tls.passthepopcorn.me/favicon.ico
-// @include *://*.passthepopcorn.me/*
+// @icon https://passthepopcorn.me/favicon.ico
+// @include https://passthepopcorn.me/*
 // @downloadURL https://raw.githubusercontent.com/nikkun/ptp-bpconvert/master/bpconvert.user.js
 // @updateURL https://raw.githubusercontent.com/nikkun/ptp-bpconvert/master/bpconvert.user.js
 // @grant none
@@ -19,15 +19,15 @@
 var urls = [
   {
     points: 2500000,
-    url: 'https://tls.passthepopcorn.me/bonus.php?action=purchase&type=2&itemid=17&confirm=1',
+    url: 'https://passthepopcorn.me/bonus.php?action=purchase&type=2&itemid=17&confirm=1',
   },
   {
     points: 250000,
-    url: 'https://tls.passthepopcorn.me/bonus.php?action=purchase&type=2&itemid=16&confirm=1',
+    url: 'https://passthepopcorn.me/bonus.php?action=purchase&type=2&itemid=16&confirm=1',
   },
   {
     points: 50000,
-    url: 'https://tls.passthepopcorn.me/bonus.php?action=purchase&type=2&itemid=8&confirm=1',
+    url: 'https://passthepopcorn.me/bonus.php?action=purchase&type=2&itemid=8&confirm=1',
   },
 ];
 
