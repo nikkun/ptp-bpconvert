@@ -34,9 +34,11 @@ var urls = [
 // Call XMLHttpRequest GET request
 var request = function(url, callback) {
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', url);
+  xhr.open('POST', url);
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   xhr.onload = callback;
-  xhr.send();
+  xhr.send('confirm=1&AntiCsrfToken=' +
+           encodeURIComponent(document.body.dataset.anticsrftoken));
 };
 
 // Find current bonus point value using text of #nav_bonus in menu bar
